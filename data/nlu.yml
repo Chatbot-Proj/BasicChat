@@ -17,52 +17,75 @@ nlu:
     - goodevening
     - good afternoon
 
-
-- intent: inform_name
+- intent: goodbye
   examples: |
-    - I'm [Sarah]{"entity": "name"}.
-    - Hi, my name is [Chris]{"entity": "name"}.
-    - You can call me [Alex]{"entity": "name"}.
-    - [Emily]{"entity": "name"} is my name.
-    - My name is [Jasmine]{"entity": "name"}.
-    - [Ahmed]{"entity": "name"} is who I am.
-    - I am known as [Sofia]{"entity": "name"}.
-    - My name is [Tariq]{"entity": "name"}.
-    - [Liu]{"entity": "name"} is my family name.
-    - I go by [Ravi]{"entity": "name"}.
-    - [Noor]{"entity": "name"} is my given name.
-    - My name is [Zhang]{"entity": "name"}.
-    - [Ming]{"entity": "name"} is my handle.
-    - I'm [Fatima]{"entity": "name"}.
-    - My name is [Kim]{"entity": "name"}.
-    - [Park]{"entity": "name"} is my family name.
-    - I am known as [Sato]{"entity": "name"}.
-    - My name is [Nguyen]{"entity": "name"}.
-    - [Hoang]{"entity": "name"} is my given name.
-    - I go by [Trinh]{"entity": "name"}.
-    - [Le]{"entity": "name"} is my family name.
-    - My name is [Pham]{"entity": "name"}.
-    - [Dang]{"entity": "name"} is my handle.
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
 
-- intent: ask_name
+- intent: affirm
   examples: |
-    - Can you remind me of my name?
-    - What do you call me?
-    - Do you remember my name?
-    - I forgot my name.
-    - Please tell me my name.
-    - Who am I?
-    - What's my name again?
-    - Can you tell me my name?
-    - I don't remember my name.
-    - My memory is failing me, what's my name?
-    - Can you help me recall my name?
-    - I can't seem to remember my name.
-    - What was my name again?
-    - Can you jog my memory and tell me my name?
-    - I'm drawing a blank on my name.
-    - My mind is blank, what's my name?
-    - Can you give me a hint about my name?
-    - I need a reminder, what's my name?
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
 
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
 
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?

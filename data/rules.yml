@@ -2,23 +2,12 @@ version: "3.1"
 
 rules:
 
-# ask name confirmation
-# - rule: ask name confirmation
-#   steps:
-#   - intent: inform_name
-# #   - action: action_extract_name
-#   - action: utter_greet_with_name
-
-# respond with name
-- rule: respond with name
+- rule: Say goodbye anytime the user says goodbye
   steps:
-  - action: utter_respond_with_name
+  - intent: goodbye
+  - action: utter_goodbye
 
-# respond without name
-- rule: respond without name
-  condition:
-  - slot_was_set:
-      - name: null
+- rule: Say 'I am a bot' anytime the user challenges
   steps:
-  - action: utter_respond_without_name
-
+  - intent: bot_challenge
+  - action: utter_iamabot
