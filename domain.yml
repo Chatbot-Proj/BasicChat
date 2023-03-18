@@ -8,6 +8,11 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
+  - inform_name
+  - ask_name
+
+actions:
+  - action_extract_name
 
 responses:
   utter_greet:
@@ -29,6 +34,35 @@ responses:
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
 
+  utter_greet_with_name:
+  - text: "Hello, {name}! Welcome back."
+
+  utter_respond_with_name:
+  - text: "I Know! You're {name}!"
+
+  utter_respond_without_name:
+  - text: "I Don't know you!"
+
+entities:
+  - name
+
+# Define the 'name' slot with the 'from_text' mapping
+slots:
+  name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: name
+
+entity_extraction_policies:
+  - lookup:
+      entity: name
+      field: text
+      mem_save: true
+
+
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
+
