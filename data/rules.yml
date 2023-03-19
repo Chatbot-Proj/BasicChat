@@ -2,13 +2,6 @@ version: "3.1"
 
 rules:
 
-# ask name confirmation
-# - rule: ask name confirmation
-#   steps:
-#   - intent: inform_name
-# #   - action: action_extract_name
-#   - action: utter_greet_with_name
-
 # respond with name
 - rule: respond with name
   steps:
@@ -22,3 +15,7 @@ rules:
   steps:
   - action: utter_respond_without_name
 
+- rule: Request random names
+  steps:
+  - intent: request_random_names
+  - action: action_get_random_names
