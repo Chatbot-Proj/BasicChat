@@ -1,47 +1,27 @@
-# This files contains your custom actions which can be used to run
-# custom Python code.
-#
-# See this guide on how to implement these action:
-# https://rasa.com/docs/rasa/custom-actions
-
-
-# This is a simple example for a custom action which utters "Hello World!"
-#
-# from typing import Any, Text, Dict, List
-#
-# from rasa_sdk import Action, Tracker
-# from rasa_sdk.executor import CollectingDispatcher
-#
-#
-# class ActionHelloWorld(Action):
-#
-#     def name(self) -> Text:
-#         return "action_hello_world"
-#
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-#
-#         dispatcher.utter_message(text="Hello World!")
-#
-#         return []
-
-
+import csv
+import random
 from typing import Any, Text, Dict, List
+
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.events import SlotSet
 
-class ActionExtractName(Action):
-    def name(self) -> Text:
-        return "action_extract_name"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        name = None
-        for entity in tracker.latest_message['entities']:
-            if entity['entity'] == 'name':
-                name = entity['value']
-                break
-        return [SlotSet('name', name)]
+class ActionGetRandomNames(Action):
+
+  def name(self) -> Text:
+    return "action_get_random_names"
+
+  def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+    names = []
+
+    with open('rand_data/random_names.csv', newline='', encoding='utf-8') as csvfile:
+      reader = csv.DictReader(csvfile)
+      for row in reader:
+        names.append(row['name'])
+
+    random.shuffle(names)
+    selected_names = names[:5]  # Change the number to select more or less names
+
+    dispatcher.utter_message(text=f"Here are some random names: {', '.join(selected_names)}")
+
+    return []

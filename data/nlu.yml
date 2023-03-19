@@ -65,4 +65,14 @@ nlu:
     - Can you give me a hint about my name?
     - I need a reminder, what's my name?
 
-
+- intent: request_random_names
+  examples: |
+    - Give me some random names
+    - Show me random names
+    - List a few random names
+    - Can you provide random names?
+    - I'd like to see random names
+    - I need some random names
+    - I want to see random names
+    - I'd like to see some random names
+    - I need some random names

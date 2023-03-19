@@ -12,7 +12,7 @@ intents:
   - ask_name
 
 actions:
-  - action_extract_name
+  - action_get_random_names
 
 responses:
   utter_greet:
